@@ -14,7 +14,7 @@ async function loadTexture(url) {
 }
 
 async function createOcean(scene, directionalLight) {
-    const waterGeometry = new THREE.PlaneGeometry(5000, 5000); // Размеры океана
+    const waterGeometry = new THREE.PlaneGeometry(4000, 4000); // Размеры океана, чтобы охватывал весь остров
 
     const waterTexture = await loadTexture('https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/waternormals.jpg');
 
@@ -35,6 +35,7 @@ async function createOcean(scene, directionalLight) {
     });
 
     water.rotation.x = -Math.PI / 2;
+    water.position.y = 0; // Устанавливаем уровень воды на 0 для затопления краев острова
     scene.add(water);
 
     return water;
