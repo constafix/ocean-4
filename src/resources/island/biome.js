@@ -60,7 +60,7 @@ function createBiome(position, geometry, color, heightVariation, name, elevation
       const testGeometry = new TextGeometry(testLine, {
         font: font,
         size: Math.min(geometry.parameters.width, geometry.parameters.height) / 10,
-        depth: 2, // Используем depth вместо устаревшего height
+        depth: 2,
         curveSegments: 12,
         bevelEnabled: true,
         bevelThickness: 1,
@@ -84,7 +84,7 @@ function createBiome(position, geometry, color, heightVariation, name, elevation
     const textGeometry = new TextGeometry(formattedText, {
       font: font,
       size: Math.min(geometry.parameters.width, geometry.parameters.height) / 10,
-      depth: 2, // Используем depth вместо устаревшего height
+      depth: 2,
       curveSegments: 12,
       bevelEnabled: true,
       bevelThickness: 1,
@@ -110,3 +110,5 @@ function createBiome(position, geometry, color, heightVariation, name, elevation
 }
 
 export { createBiome };
+
+//может

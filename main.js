@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { createIsland } from './src/resources/island/island.js'; // Импортируем функцию createIsland из island.js
 import { createOcean, animateWater } from './src/resources/ocean/ocean.js'; // Импортируем функции createOcean и animateWater из ocean.js
+import { createOceanFloor } from './src/resources/ocean/oceanFloor.js'; // Импортируем функцию createOceanFloor из oceanFloor.js
 
 // Создание сцены
 const scene = new THREE.Scene();
@@ -29,6 +30,9 @@ scene.add(directionalLight);
 
 // Создание объектов острова
 const island = createIsland(scene);
+
+// Создание дна океана
+createOceanFloor(scene);
 
 // Установка управления камерой на один из объектов
 const controls = new OrbitControls(camera, renderer.domElement);

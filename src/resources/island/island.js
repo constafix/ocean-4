@@ -3,11 +3,11 @@ import { createBiome } from './biome.js';
 
 function createIsland(scene) {
   const islandGroup = new THREE.Group();
-  islandGroup.position.y = 10; // Поднятие острова на 10 единиц вверх
+  islandGroup.position.y = -10; // Устанавливаем уровень острова ниже уровня океана
 
   // Размер острова
   const islandSize = 600; // Общий размер острова
-  const biomes = [
+  const биомы = [
     { color: 0xFFD700, height: 1, name: 'Песчаные пляжи', elevationRange: [0, 5] },
     { color: 0x2E8B57, height: 1, name: 'Мангровые заросли', elevationRange: [0, 5] },
     { color: 0x228B22, height: 2, name: 'Тропический лес', elevationRange: [5, 15] },
@@ -22,7 +22,7 @@ function createIsland(scene) {
 
   // Функция для равномерного распределения биомов по острову
   function distributeBiomes(biomes, islandSize) {
-    const numBiomes = biomes.length;
+    const numBiomes = биомы.length;
     const biomesPerRow = Math.ceil(Math.sqrt(numBiomes));
     const sectionSize = islandSize / biomesPerRow;
 
@@ -36,12 +36,12 @@ function createIsland(scene) {
       // Создание квадратного биома
       const geometry = new THREE.PlaneGeometry(sectionSize, sectionSize, 32, 32);
 
-      createBiome({ x: xOffset, y: 0, z: zOffset }, geometry, biomes[i].color, biomes[i].height, biomes[i].name, biomes[i].elevationRange, scene);
+      createBiome({ x: xOffset, y: 0, z: zOffset }, geometry, биомы[i].color, биомы[i].height, биомы[i].name, биомы[i].elevationRange, scene);
     }
   }
 
   // Распределение биомов по острову
-  distributeBiomes(biomes, islandSize);
+  distributeBiomes(биомы, islandSize);
 
   scene.add(islandGroup);
   return islandGroup;
