@@ -92,7 +92,12 @@ function createBiome(position, geometry, color, heightVariation, name, elevation
       bevelSegments: 2
     });
 
-    const textMaterial = new THREE.MeshStandardMaterial({ color: 0xFFFFFF }); // Цвет текста - белый
+    const textMaterial = new THREE.MeshStandardMaterial({
+      color: 0xFFFFFF, // Белый цвет
+      emissive: 0xFFFFFF, // Светящийся эффект
+      emissiveIntensity: 0.8 // Интенсивность свечения
+    });
+
     const textMesh = new THREE.Mesh(textGeometry, textMaterial);
     textMesh.position.set(0, 45, 0); // Поднятие текста
     textMesh.rotation.x = -Math.PI / 2; // Поворот текста, чтобы он был виден сверху
